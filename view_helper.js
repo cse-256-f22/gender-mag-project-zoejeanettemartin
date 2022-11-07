@@ -512,6 +512,36 @@ function get_explanation_text(explanation) {
     `
 }
 
+function explain_permission(permission) {
+    if (permission == 'traverse folder/execute file') {
+
+    } else if (permission == 'list folder/read contents') {
+
+    } else if (permission == 'read attributes') {
+
+    } else if (permission == 'read extended attributes') {
+
+    } else if (permission == 'create files/write data') {
+
+    } else if (permission == 'create folders/append data') {
+
+    } else if (permission == 'write attributes') {
+
+    } else if (permission == 'write extended attributes') {
+
+    } else if (permission == 'delete subfolders and files') {
+
+    } else if (permission == 'delete') {
+
+    } else if (permission == 'read permissions') {
+
+    } else if (permission == 'change permissions') {
+
+    } else if (permission == 'take ownership') {
+        
+    }
+}
+
 //---- some universal HTML set-up so you don't have to do it in each wrapper.html ----
 $('#filestructure').css({
     'display':'inline-block',
