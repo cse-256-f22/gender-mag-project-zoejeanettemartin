@@ -97,3 +97,28 @@ $('.permbutton').click( function( e ) {
 
 // ---- Assign unique ids to everything that doesn't have an ID ----
 $('#html-loc').find('*').uniqueId() 
+
+//extract current scenario text, keeping this code in case we need it later
+
+// $.get('scenarios/scenarios.json', function(data){
+//     // let scenariosList = JSON.parse(data);
+//     console.log('IN HERE______________');
+//     console.log(data);
+//     // console.log(scenariosList);
+// } ,'json')
+
+//undo functionality
+
+
+let mementos = [];
+let allowedActions1 = get_allowed_actions_string();
+
+console.log("refresh");
+
+$('#undoButton').click(function(){
+    let allowedActions2 = get_allowed_actions_string();
+    emitStateUndo("Permission state changed", allowedActions1);
+    console.log("IN HERE____________");
+    // console.log(allowedActions1);
+    // console.log(allowedActions2);
+});

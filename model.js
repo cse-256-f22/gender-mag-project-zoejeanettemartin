@@ -189,7 +189,19 @@ function get_allowed_actions_string(){
 }
 
 function emitState(purpose = "Permission state changed"){
+  console.log("emitState()");
   let allowedActions = get_allowed_actions_string()
+
+  let data = new SpecialEventEntry(ActionEnum.SPECIAL_EVENT, new Date().getTime(), {
+    purpose: purpose,
+    newState: allowedActions
+  })
+  emitter.dispatchEvent(new CustomEvent('userEvent', { detail: data }));
+}
+
+function emitStateUndo(purpose = "Permission state changed", allowedActions){
+  console.log("emitStateUndo()");
+  // let allowedActions = get_allowed_actions_string()
 
   let data = new SpecialEventEntry(ActionEnum.SPECIAL_EVENT, new Date().getTime(), {
     purpose: purpose,
