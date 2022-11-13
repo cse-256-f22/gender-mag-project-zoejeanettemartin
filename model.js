@@ -15,7 +15,7 @@ permissions = {
   APPEND_DATA: 'create folders/append data',
   WRITE_ATTR: 'write attributes',
   WRITE_EXTENDED_ATTR: 'write extended attributes',
-  DELETE_SUB: 'delete subfolders and files',
+  DELETE_SUB: 'delete subfolders and subfiles',
   DELETE: 'delete',
   READ_PERMS: 'read permissions',
   CHANGE_PERMS: 'change permissions',
