@@ -200,6 +200,31 @@
                         <li>Within the same inheritance level, permissions set for users and groups have the same priority; neither takes priority over the other.</li>
                     </ul>
                 </div>  
+                <br>
+
+                <button id="stepbystep_button" onclick="showSteps()">Step-by-Step Guide</button>
+                <button id="hideinfo" onclick="hideSteps()">^</button>
+                <div id="stepByStep" style="display: none">
+                    <h1>Step-by-Step Guide</h1>
+                    <p>
+                       1. Look at all of the direct (i.e. not inherited) permissions that are set on this file for this user OR for any groups that this user is part of (e.g. administrators).
+                    </p>
+                    <ul>
+                        <li>
+                            <ul>
+                                <li>a. If any of these are set to deny permission, then permission is denied.
+                                    b. (Otherwise) if any of these are set to allow the permission, then the action is allowed to happen.</li>
+                            </ul>
+                        </li>
+                        <br>
+                        <li>2. If (a) there were no direct permissions for this [user, action] combination, 
+                        <li> AND (b) inheritance is turned on for this file/folder... 
+                        <li> Repeat the process using the permissions for the parent folder. </li>
+                        <br>
+                        <li>3. If you have exhausted the options available via inheritance, and still have not found any relevant permission settings, then permission is denied.             </li>
+                    </ul>
+                </div>  
+
                 <script>
                     function showInfo() {
                         document.getElementById("infopage").style.display="inline";
@@ -208,6 +233,15 @@
                         document.getElementById("infopage").style.display="none";
                     }
                 </script>
+
+<script>
+    function showSteps() {
+        document.getElementById("stepByStep").style.display="inline";
+    }
+    function hideSteps() {
+        document.getElementById("stepByStep").style.display="none";
+    }
+</script>
 
                 <script src="model.js"></script>
                 <script src="test_model.js"></script>
