@@ -512,6 +512,7 @@ function get_explanation_text(explanation) {
     `
 }
 
+
 function explain_permission(permission) {
     if (permission == 'traverse folder/execute file') {
 

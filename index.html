@@ -180,6 +180,35 @@
                     <button>redo</button>
                 </div>
 
+                <button id="infopage_button" onclick="showInfo()">Explanation of File Permissions</button>
+                <button id="hideinfo" onclick="hideInfo()">^</button>
+                <div id="infopage" style="display: none">
+                    <h1>Inheritance</h1>
+                    <p>
+                        A file/folder may inherit permissions from its parent folder. By default, this inheritance is on for all files/folders. But it is possible to turn off inheritance for a particular file/folder (which makes it stop inheriting permissions from its parent).
+                    </p>
+                    <br>
+                    <h1>Precedence</h1>
+                    <ul>
+                        <li>
+                            Direct permissions take precedence over inherited permissions (if any)
+                            <ul>
+                                <li>Inherited permissions at a "closer" level to the file in question take precedence over ones that are "further" (e.g. parent permissions take precedence over grandparent permissions)</li>
+                            </ul>
+                        </li>
+                        <li>Within the same inheritance level, "deny" permissions take precedence over "allow" permissions.</li>
+                        <li>Within the same inheritance level, permissions set for users and groups have the same priority; neither takes priority over the other.</li>
+                    </ul>
+                </div>  
+                <script>
+                    function showInfo() {
+                        document.getElementById("infopage").style.display="inline";
+                    }
+                    function hideInfo() {
+                        document.getElementById("infopage").style.display="none";
+                    }
+                </script>
+
                 <script src="model.js"></script>
                 <script src="test_model.js"></script>
                 <script id="config-script">
