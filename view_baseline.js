@@ -78,8 +78,14 @@ cant_remove_dialog = define_new_dialog('cant_remove_inherited_dialog', 'Security
 cant_remove_dialog.html(`
 <div id="cant_remove_text">
     You can't remove <span id="cant_remove_username_1" class = "cant_remove_username"></span> because this object is inheriting permissions from 
-    its parent. To remove <span id="cant_remove_username_2" class = "cant_remove_username"></span>, you must prevent this object from inheriting permissions.
-    Turn off the option for inheriting permissions, and then try removing <span id="cant_remove_username_3" class = "cant_remove_username"></span>  again.
+    its parent. To remove <span id="cant_remove_username_2" class = "cant_remove_username"></span>
+    <br><br>
+    <ol>
+    <li>close this pop-up </li>
+    <li>click "more options" </li>
+    <li>uncheck the box labeled "Include inheritable permissions from this object's parent" </li>
+    <li>remove <span id="cant_remove_username_3" class = "cant_remove_username"></span>  again </li>
+    </ol>
 </div>`)
 
 // Make a confirmation "are you sure you want to remove?" dialog
@@ -352,10 +358,10 @@ $('#adv_perm_inheritance').change(function(){
     }
     else {
         // has just been turned off - pop up dialog with add/remove/cancel
-        $(`<div id="add_remove_cancel" title="Security">
-            Warning: if you proceed, inheritable permissions will no longer propagate to this object.<br/>
-            - Click Add to convert and add inherited parent permissions as explicit permissions on this object<br/>
-            - Click Remove to remove inherited parent permissions from this object<br/>
+        $(`<div id="add_remove_cancel" title="Inheritable Permissions">
+            if you proceed, inheritable permissions will no longer propagate to this object.<br/>
+            <b>- Click Ok to prevent inherited permissions</b><br/>
+            - Click Remove to remove all users who inherit permissions<br/>
             - Click Cancel if you do not want to modify inheritance settings at this time.<br/>
         </div>`).dialog({ // TODO: don't create this dialog on the fly
             modal: true,
@@ -364,7 +370,7 @@ $('#adv_perm_inheritance').change(function(){
             position: { my: "top", at: "top", of: $('#html-loc') },
             buttons: {
                 Add: {
-                    text: "Add",
+                    text: "Ok",
                     id: "adv-inheritance-add-button",
                     click: function() {
                         let filepath = $('#advdialog').attr('filepath')
